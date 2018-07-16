@@ -13,8 +13,29 @@
 |
 */
 
-const Route = use('Route')
+const Route = use('Route');
+
+
 
 Route.get('/', ({ request }) => {
   return { greeting: 'Hello world in JSON' }
 })
+Route.group(() => {
+  Route
+  .post('users/create', 'UserController.create')
+  Route
+  .get('users/:id', 'UserController.show')
+  .middleware('auth')
+
+  Route
+  .get('users/logout', 'UserController.logout')
+  .middleware('auth')
+
+  Route.post('users/login', 'UserController.login')
+  
+  Route.post('barbecues', 'BarbecueController.create').middleware('auth')
+  Route.get('barbecues', 'BarbecueController.index')
+  Route.get('barbecues/:id', 'BarbecueController.show')
+  Route.put('barbecues/:id', 'BarbecueController.update')
+  Route.delete('barbecues/:id', 'BarbecueController.delete')
+}).prefix('api/v1')
