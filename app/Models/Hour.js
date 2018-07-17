@@ -2,20 +2,17 @@
 
 const Model = use('Model')
 
-class Barbecue extends Model {
+class Hour extends Model {
   static get table () {
-    return 'barbecues'
+    return 'bookings_hours'
   }
 
   static get primaryKey () {
     return 'id'
   }
-  user () {
-    return this.belongsTo('App/Models/User')
-  }
-  bookings () {
+  booking () {
     return this.belongsTo('App/Models/Booking')
   }
 }
 
-module.exports = Barbecue
+module.exports = Hour;

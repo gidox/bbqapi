@@ -5,11 +5,9 @@ class BarbecueController {
   async index ({response}) {
 
 
-    const barbecues = await Barbecue.query()
-  .where('age', '>', 18)
-  .fetch()
+    const barbecues = await Barbecue.query().with('user').fetch()
+    return response.status(201).json(barbecues);
 
-    return response.json(barbecues)
   }
 
   async show ({params, response}) {

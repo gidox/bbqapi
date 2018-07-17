@@ -8,9 +8,9 @@ class BarbecuesSchema extends Schema {
       table.increments(),
       table.string('title'),
       table.string('description'),
+      table.string('photo'),
       table.float('lat'),
       table.float('lon'),
-
       table.integer('user_id'),
       table.integer('model'),
       

@@ -18,10 +18,6 @@ class User extends Model {
     })
   }
 
-
-  static get primaryKey () {
-    return 'email'
-  }
   static get hidden () {
     return ['password']
   }
@@ -37,6 +33,10 @@ class User extends Model {
    */
   tokens () {
     return this.hasMany('App/Models/Token')
+  }
+
+  barbecues () {
+    return this.hasMany('App/Models/Barbecue')
   }
 }
 
