@@ -33,7 +33,7 @@ Route.group(() => {
   Route.post('users/login', 'UserController.login')
   
   Route.post('barbecues', 'BarbecueController.create').middleware('auth')
-  Route.get('barbecues', 'BarbecueController.index')
+  Route.get('barbecues', 'BarbecueController.index').middleware('auth')
   Route.get('barbecues/:id', 'BarbecueController.show')
   Route.put('barbecues/:id', 'BarbecueController.update')
   Route.delete('barbecues/:id', 'BarbecueController.delete')
